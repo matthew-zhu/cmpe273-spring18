@@ -21,13 +21,14 @@ def new_users():
     users.append({'id':newId,'name':name})
     return ("Hello {}!".format(name),201)
 
+#GET /users/1
 @app.route('/users/<id>', methods=['GET'])
 def get_users(id):
     for x in users:
         if x['id'] == int(id):
-            return x['name'],200
+            return x['name']
 
-
+#DELETE /users/1
 @app.route('/users/<id>', methods=['DELETE'])
 def delete_users(id):
     for x in users:
